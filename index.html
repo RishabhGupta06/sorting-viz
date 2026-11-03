@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SortLab — Sorting Visualizer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="SortLab home"><span class="brand-mark">↗</span><span>sort<span>lab</span></span></a>
+      <div class="topbar-status"><span class="status-dot"></span> Visualizer online <span class="divider"></span> v1.0.4</div>
+      <a class="github-link" href="https://github.com/" target="_blank" rel="noreferrer">View source <span>↗</span></a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow">ALGORITHM PLAYGROUND <span>—</span> 01</div>
+        <h1>Make sorting<br /><em>visible.</em></h1>
+        <p>Explore how algorithms think, one comparison at a time.<br />Tune the array. Watch the logic unfold.</p>
+      </section>
+
+      <section class="workspace" aria-label="Sorting visualizer">
+        <aside class="controls">
+          <div class="panel-label">CONFIGURATION</div>
+          <label for="algorithm">Algorithm</label>
+          <div class="select-wrap">
+            <select id="algorithm">
+              <option value="quick">Quick Sort</option>
+              <option value="merge">Merge Sort</option>
+              <option value="heap">Heap Sort</option>
+              <option value="insertion">Insertion Sort</option>
+              <option value="bubble">Bubble Sort</option>
+              <option value="selection">Selection Sort</option>
+            </select>
+          </div>
+          <div class="control-group">
+            <div class="range-header"><label for="size">Array size</label><output id="size-value">48</output></div>
+            <input id="size" type="range" min="12" max="90" value="48" />
+          </div>
+          <div class="control-group">
+            <div class="range-header"><label for="speed">Animation speed</label><output id="speed-value">Fast</output></div>
+            <input id="speed" type="range" min="1" max="4" value="3" />
+          </div>
+          <div class="button-row">
+            <button class="button secondary" id="shuffle"><span>⤨</span> Shuffle</button>
+            <button class="button primary" id="sort"><span>▶</span> Sort array</button>
+          </div>
+          <div class="tip"><span class="tip-icon">✦</span><p><strong>Try this:</strong> slow the speed down to see every comparison in detail.</p></div>
+        </aside>
+
+        <div class="visualizer-card">
+          <div class="visualizer-head">
+            <div><div class="panel-label">LIVE CANVAS</div><h2 id="algorithm-name">Quick Sort</h2></div>
+            <div class="metrics"><div><strong id="comparisons">0</strong><span>comparisons</span></div><div><strong id="swaps">0</strong><span>swaps</span></div><div><strong id="timer">0.00s</strong><span>elapsed</span></div></div>
+          </div>
+          <div class="chart-wrap"><div class="chart" id="chart" role="img" aria-label="Array bars"></div><div class="axis"><span>0</span><span>array values</span><span>100</span></div></div>
+          <div class="legend"><span><i class="legend-bar default"></i> Unsorted</span><span><i class="legend-bar active"></i> Comparing</span><span><i class="legend-bar done"></i> Sorted</span><span class="state" id="state">Ready to sort</span></div>
+        </div>
+      </section>
+
+      <section class="algorithm-notes">
+        <div class="notes-intro"><div class="panel-label">THE CHEAT SHEET</div><h2>Six ways to<br /><em>order chaos.</em></h2></div>
+        <div class="algorithm-grid" id="algorithm-grid"></div>
+      </section>
+    </main>
+    <footer><span>Built for curious minds.</span><span class="footer-line"></span><span>SortLab / 2025</span></footer>
+    <script src="script.js"></script>
+  </body>
+</html>
